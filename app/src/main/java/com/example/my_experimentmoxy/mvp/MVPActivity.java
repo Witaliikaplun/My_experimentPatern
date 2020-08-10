@@ -17,7 +17,7 @@ public class MVPActivity extends AppCompatActivity implements IMVPAct {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.mvp_activity_main);
 
-        tv1 = findViewById(R.id.tv1);
+        tv1 = findViewById(R.id.tv_source);
         Button btn1 = findViewById(R.id.btn1);
         presenter = new Presenter(this);
 

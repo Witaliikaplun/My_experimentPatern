@@ -20,7 +20,7 @@ public class MVVMActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_m_v_v_m);
 
-        final TextView tv1 = findViewById(R.id.tv1);
+        final TextView tv1 = findViewById(R.id.tv_source);
         final TextView tv2 = findViewById(R.id.tv2);
         final TextView tv3 = findViewById(R.id.tv3);
         Button btn1 = findViewById(R.id.btn1);
