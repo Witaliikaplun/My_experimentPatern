@@ -9,7 +9,7 @@ public final class Singleton {
 
     private MyDatabase myDatabase;
     private Singleton(Context context){
-        myDatabase = Room.databaseBuilder(context, MyDatabase.class, "database").build();
+        myDatabase = Room.databaseBuilder(context, MyDatabase.class, "employee").build();
     }
 
     public static Singleton getInstance(Context context){

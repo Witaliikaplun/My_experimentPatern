@@ -32,6 +32,10 @@ public interface IEmployeeDAO {
     @Insert
     void insert(List<Employee> employee);
 
+    //Мы можем указать стратегию вставки на тот случай если указанные объекты уже будут в базе
+//    @Insert(onConflict = OnConflictStrategy.REPLACE)
+//    void insert(List<Employee> employee);
+
     @Update
     void update(Employee employee);
 
