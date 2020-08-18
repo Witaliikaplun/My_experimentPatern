@@ -15,6 +15,13 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Observable;
+import io.reactivex.Observer;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.BiFunction;
+import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
+import io.reactivex.functions.Predicate;
 import moxy.InjectViewState;
 //import rx.Observable;
 //import rx.Observer;
@@ -31,9 +38,12 @@ import moxy.InjectViewState;
 //import rx.subjects.Subject;
 
 public class RXJavaActivity extends AppCompatActivity {
-//    final String LOG = "LOG";
-//    Button button;
-//    Subscription subscription;
+
+    Button button;
+    Boolean flag;
+    Long accum = 0L;
+
+    //    Subscription subscription;
 //    ConnectableObservable <Long> observable;
 //    Observer<String> observer1;
 //    Observer<Long> observer2;
@@ -45,7 +55,7 @@ public class RXJavaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_r_x_java);
-//        button = findViewById(R.id.button);
+
 //        tv = findViewById(R.id.textView);
 //        subject = PublishSubject.create();
 //
@@ -67,6 +77,22 @@ public class RXJavaActivity extends AppCompatActivity {
 //        };
 //
 //        subject.subscribe(action1);
+
+        Observable<Long> observable = Observable.interval(1, TimeUnit.SECONDS)
+                .doOnSubscribe(new Consumer<Disposable>() {
+                    @Override
+                    public void accept(Disposable disposable) throws Exception {
+                        Log.d("mylog", Thread.currentThread().getName());
+                    }
+                });
+                observable.subscribe(new Consumer<Long>() {
+                    @Override
+                    public void accept(Long aLong) throws Exception {
+                        Log.d("mylog", String.valueOf(aLong));
+                    }
+                });
+
+
 
 
     }
